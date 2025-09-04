@@ -35,6 +35,9 @@ app.listen(port, () => {
 
 app.use("/auth/api/v1", authRoute);
 app.use("/group/api/v1", groupRoute);
+app.use("/", (req, res, next) => {
+  return res.status(200).send("<h1> Hello Irfan </h1>");
+});
 
 app.use((error, req, res, next) => {
   console.log("Error ==> ", error.message);
